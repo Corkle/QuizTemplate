@@ -9,44 +9,47 @@ $.getJSON("quiz-data/quiz.json", function(data) {
 );
 
 function main() {
-    var quizCtrl;
-    
+    var quizCtrl = new QuizCtrl();
+
+    quizCtrl.initializeProgressBar();
+    quizCtrl.loadQuestion();
+
     $('#quiz-panel')
         .on('submit', function (e) {
-            if (!$('input[name="answerOptions"]').is(':checked')) { // No choice selected
-                $('#alert-submit-no-answer').show();
-                return false;
-            } else {
-                $('#alert-submit-no-answer').hide();
-                var userAnswer = $('#quiz-panel input[name=answerOptions]:checked').val()
-                quizCtrl.scoreAnswer(userAnswer);
-                if (quizCtrl.quizCompleted()) {
-                    quizCtrl.showQuizScore();
-                } else {
-                    quizCtrl.loadQuestion();
-                    quizCtrl.updateProgress();
-                }
-            }
-            e.preventDefault();
-        })
+        if (!$('input[name="answerOptions"]').is(':checked')) { // No choice selected
+            $('#alert-submit-no-answer').show();
+            return false;
+        } else {
+            $('#alert-submit-no-answer').hide();
+            var userAnswer = $('#quiz-panel input[name=answerOptions]:checked').val()
+            quizCtrl.scoreAnswer(userAnswer);
+        }
+        e.preventDefault();
+    })
         .on('click', '[data-hide]', function () {
-            $('.' + $(this).attr('data-hide')).hide();
-        })
+        $('.' + $(this).attr('data-hide')).hide();
+    })
 
     $('#start-quiz-container')
         .on('click', '#start-quiz-btn', function () {
-            quizCtrl = new QuizCtrl();
-
-            quizCtrl.initializeProgressBar();
-            quizCtrl.loadQuestion();
-            $('#start-quiz-container').hide();
-            $('#quiz-content').show();
-        })
+        $('#start-quiz-container').hide();
+        $('#quiz-content').show();
+    })
 
     $('#quiz-score-container')
         .on('click', '#retry-quiz-btn', function () {
-            location.reload();
-        })
+        location.reload();
+    })
+
+    $('#score-answer-modal')
+        .on('hidden.bs.modal', function() {
+        if (quizCtrl.quizCompleted()) {
+            quizCtrl.showQuizScore();
+        } else {
+            quizCtrl.loadQuestion();
+            quizCtrl.updateProgress();
+        }
+    })
 }
 
 function QuizCtrl() {
@@ -77,14 +80,17 @@ function QuizCtrl() {
     this.scoreAnswer = function (answer) {
         if (currentQuiz.submitAnswer(answer)) {
             $('#quiz-progress .progress-step.active').addClass('correct');
+            $('#score-answer-modal .modal-title').text('Correct!');
         } else {
             $('#quiz-progress .progress-step.active').addClass('incorrect');
+            $('#score-answer-modal .modal-title').text('Incorrect');
         }
+        $('#score-answer-modal').modal('show');
     }
 
     this.loadQuestion = function () {
         var quizData = currentQuiz.getCurrentQuizData()
-        $('#quiz-question-image').attr('src', 'quiz-data/images/' + quizData.quizArray.img);
+        $('#quiz-question-image').attr('src', quizData.quizArray.img);
         $('#quiz-question').text('#' + quizData.questionNum + ': ' + quizData.quizArray.question);
         for (var i = 0; i < quizData.quizArray.choices.length; i++) {
             $('#quiz-choice-' + (i + 1) + ' label').html('<input type="radio" name="answerOptions" value="' + i + '"> ' + quizData.quizArray.choices[i]);
@@ -117,6 +123,7 @@ function Quiz() {
     this.CurrentQuestion = function () {
         return currentQuestion;
     }
+
     var correctAnswers = 0;
     var quizData = quizArray; //Loads questions array
     var quizLength = quizData.length;
