@@ -2,6 +2,7 @@
     {
         "img": "images/quokka.jpg",
         "question": "What is the name of this cheerful looking animal found in Australia?",
+        "type": "multi-choice",
         "choices": [
             "Wallaby",
             "Quokka",
@@ -14,6 +15,7 @@
     {
         "img": "images/puffer.jpg",
         "question": "What is the name of the lethal toxin found in almost all pufferfish?",
+        "type": "multi-choice",
         "choices": [
             "Conotoxin",
             "Curare",
@@ -26,6 +28,7 @@
     {
         "img": "images/jaguar.jpg",
         "question": "The name \"jaguar\" comes from a Native American word meaning what?",
+        "type": "multi-choice",
         "choices": [
             "Ghost",
             "Spotted",
@@ -38,6 +41,7 @@
     {
         "img": "images/panda.jpg",
         "question": "A group of pandas is called what?",
+        "type": "multi-choice",
         "choices": [
             "A School",
             "Pandemonium",
@@ -50,6 +54,7 @@
     {
         "img": "images/butterfly.jpg",
         "question": "What do butterflies taste with?",
+        "type": "multi-choice",
         "choices": [
             "Their feet",
             "Their wings",
@@ -62,6 +67,7 @@
     {
         "img": "images/woodchuck.jpg",
         "question": "What are female woodchucks called?",
+        "type": "multi-choice",
         "choices": [
             "Lady chucks",
             "She-chucks",

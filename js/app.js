@@ -90,6 +90,20 @@ function QuizCtrl() {
 
     this.loadQuestion = function () {
         var quizData = currentQuiz.getCurrentQuizData()
+            
+        ///////////////////////////////////////////////////////////////////////////////
+        // clear previous questionPanel
+        $('.panel-body').html('');
+        
+        // get next questionPanel type
+        
+        // clone questionPanel type
+        var quizPanel = $('.templates .' + quizData.quizArray.type + '').clone();
+        
+        DEBUG(quizPanel);
+        
+        // append to quiz-content after quiz-question
+        
         $('#quiz-question-image').attr('src', '/quiz-data/' + quizData.quizArray.img);
         $('#quiz-question').text('#' + quizData.questionNum + ': ' + quizData.quizArray.question);
         for (var i = 0; i < quizData.quizArray.choices.length; i++) {
@@ -101,7 +115,8 @@ function QuizCtrl() {
         var numQuestions = currentQuiz.getQuizLength();
         $('#quiz-progress').children().remove();
         for (i = 0; i < numQuestions; i++) {
-            $('#quiz-progress').append('<div class="progress-step"><div class="progress"><div class="progress-bar"></div></div><div class="progress-dot"><span class="glyphicon glyphicon-ok"></span><span class="glyphicon glyphicon-remove"></span></div></div>');
+            var progressElem = $('.templates .progress-step').clone();
+            $('#quiz-progress').append(progressElem);
         }
         $('#quiz-progress .progress-step').width(100 / numQuestions + '%');
         $('#quiz-progress .progress-step').eq(0).addClass('active');

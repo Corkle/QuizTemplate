@@ -169,7 +169,6 @@ html, body {
     margin: 0 auto;
 }
 
-
 .modal {
     vertical-align: middle;
 }
@@ -206,4 +205,8 @@ html, body {
     height: inherit;
     margin: 0 auto;
     pointer-events: all;
+}
+
+.hidden {
+    display: none;
 }
