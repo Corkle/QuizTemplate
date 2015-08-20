@@ -169,6 +169,17 @@ html, body {
     margin: 0 auto;
 }
 
+
+.modal {
+    vertical-align: middle;
+}
+
+.col-center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*Vertically center side-by-side quiz elements*/
 @media (min-width: 768px) {
     .vcenter {
         display: flex;
@@ -176,3 +187,23 @@ html, body {
     }
 }
 
+.vertical-alignment-helper {
+    display: table;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    pointer-events: none;
+}
+
+.vertical-align-center {
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+.modal-content {
+    width: inherit;
+    height: inherit;
+    margin: 0 auto;
+    pointer-events: all;
+}
