@@ -1,5 +1,20 @@
 [
     {
+        "img": "",
+        "question": "**NEW QUESTION. What woodchucks called?",
+        "type": "multi-choice",
+        "choices": [
+            "Lady chucks",
+            "She-chucks",
+            "Two buck chucks",
+            "Fem-chucks",
+            "Chuckettes",
+            "Two buck chucks",
+            "Fem-chucks"
+        ],
+        "answerIndex": 1
+    },
+    {
         "img": "images/quokka.jpg",
         "question": "What is the name of this cheerful looking animal found in Australia?",
         "type": "multi-choice",
@@ -67,6 +82,45 @@
     {
         "img": "images/woodchuck.jpg",
         "question": "What are female woodchucks called?",
+        "type": "multi-choice",
+        "choices": [
+            "Lady chucks",
+            "She-chucks",
+            "Two buck chucks",
+            "Fem-chucks",
+            "Chuckettes"
+        ],
+        "answerIndex": 1
+    },
+    {
+        "img": "",
+        "question": "**A group of pandas is called what?",
+        "type": "multi-choice",
+        "choices": [
+            "A School",
+            "Pandemonium",
+            "A Mob",
+            "A Colony",
+            "An Embarrassment"
+        ],
+        "answerIndex": 4
+    },
+    {
+        "img": "",
+        "question": "**What do butterflies taste with?",
+        "type": "multi-choice",
+        "choices": [
+            "Their feet",
+            "Their wings",
+            "A fork",
+            "Their eyes",
+            "Their antennae"
+        ],
+        "answerIndex": 0
+    },
+    {
+        "img": "",
+        "question": "**What are female woodchucks called?",
         "type": "multi-choice",
         "choices": [
             "Lady chucks",

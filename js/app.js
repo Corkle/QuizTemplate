@@ -7,7 +7,6 @@ function main() {
 
     $('#quiz-form')
         .on('submit', function (e) {
-            DEBUG("SUBMIT");
             if (!$('input[name="answerOptions"]').is(':checked')) { // No choice selected
                 $('#alert-submit-no-answer').show();
                 return false;
@@ -91,6 +90,7 @@ function QuizCtrl() {
     this.loadQuestion = function () {
         var quizData = currentQuiz.getCurrentQuizData()
 
+        DEBUG(quizData);
         var quizElems = $('#quiz-body')
         
         // set quiz image if available, otherwise center quiz-panel
@@ -103,12 +103,11 @@ function QuizCtrl() {
         }
 
         // Set question text
-        quizElems.find('.quiz-question').text('#' + quizData.questionNum + ': ' + quizData.quizArray.question);
+        quizElems.find('#quiz-question').text('#' + quizData.questionNum + ': ' + quizData.quizArray.question);
 
         var quizPanel = quizElems.find('.panel-body .list-group').empty();
         switch (quizData.quizArray.type) {
         case 'multi-choice':
-//            quizPanel = $('<ul class="multi-choice list-group"><ul>');
             for (var i = 0; i < quizData.quizArray.choices.length; i++) {
                 quizPanel.append('<li class="list-group-item"><div class="radio"><label><input type="radio" name="answerOptions" value="' + i + '"> ' + quizData.quizArray.choices[i] + '</label></div></li>');
             }
@@ -116,14 +115,9 @@ function QuizCtrl() {
         case 'written-number':
             break;
         case 'true-false':
+                alert("True/False");
             break;
         }
-        
-        DEBUG(quizPanel.html());
-//        quizElems.find('.panel-body').html(quizPanel);
-
-        // Add quiz data to beginning of quiz-content
-//        $('#quiz-content').prepend(quizElems);
 
     }
 
