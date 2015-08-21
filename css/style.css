@@ -173,11 +173,6 @@ html, body {
     vertical-align: middle;
 }
 
-.col-center {
-    text-align: center;
-    margin: 0 auto;
-}
-
 /*Vertically center side-by-side quiz elements*/
 @media (min-width: 768px) {
     .vcenter {
@@ -209,4 +204,7 @@ html, body {
 
 .hidden {
     display: none;
+}
+.list-group-item {
+    text-align: left;
 }

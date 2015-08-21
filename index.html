@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Animal Quiz</title>
-    <meta name='viewport' content='width=device-width, inital-scale=1'>
+    <meta name='viewport' content='width=device-width, inital-scale=1'>    
+    
     <link rel='stylesheet' type='text/css' href='css/style.css'>
     <link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>
+
     <link href='http://fonts.googleapis.com/css?family=Raleway:600,400' rel='stylesheet' type='text/css'>
 </head>
 
@@ -50,39 +52,22 @@
 
             <div class='container' id='quiz-content' style='display: none'>
                 <div id='quiz-body' class='row vcenter'>
-                    <div class='col-sm-6 col-sm-offset-1'>
-                        <img id='quiz-question-image' class='img-thumbnail center-block'>
+
+                   
+                    
+                    <div class='quiz-question-image col-sm-6 col-sm-offset-1 '>
+                        <img class='img-thumbnail center-block'>
                     </div>
-                    <div class='col-sm-4'>
-                        <form id='quiz-panel' class='panel panel-primary'>
+
+
+                    <div class='quiz-panel col-sm-4'>
+                        <form id='quiz-form' class='panel panel-primary'>
                             <div id='quiz-question' class='panel-heading'></div>
                             <div class='panel-body'>
+
                                 <ul class='list-group'>
-                                    <li id='quiz-choice-1' class='list-group-item'>
-                                        <div class='radio'>
-                                            <label></label>
-                                        </div>
-                                    </li>
-                                    <li id='quiz-choice-2' class='list-group-item'>
-                                        <div class='radio'>
-                                            <label></label>
-                                        </div>
-                                    </li>
-                                    <li id='quiz-choice-3' class='list-group-item'>
-                                        <div class='radio'>
-                                            <label></label>
-                                        </div>
-                                    </li>
-                                    <li id='quiz-choice-4' class='list-group-item'>
-                                        <div class='radio'>
-                                            <label></label>
-                                        </div>
-                                    </li>
-                                    <li id='quiz-choice-5' class='list-group-item'>
-                                        <div class='radio'>
-                                            <label></label>
-                                        </div>
-                                    </li>
+                                
+                                    
                                 </ul>
                             </div>
                             <div class='panel-footer'>
@@ -90,10 +75,12 @@
                                     <a href='#' class='close' data-hide='alert'>&times;</a>
                                     <strong>Error!</strong> Choose an answer from the above choices.
                                 </div>
-                                <button type='submit' form='quiz-panel' id='quiz-submit-button' class='btn btn-primary btn-block'>Submit</button>
+                                <button type='submit' form='quiz-form' id='quiz-submit-button' class='btn btn-primary btn-block'>Submit</button>
                             </div>
                         </form>
                     </div>
+                    
+
                 </div>
 
                 <div class='row'>
@@ -137,6 +124,10 @@
         </div>
     </div>
 
+   
+    
+    
+    
     <div class='templates hidden'>
         <div class="progress-step">
             <div class="progress">
@@ -147,42 +138,50 @@
                 <span class="glyphicon glyphicon-remove"></span>
             </div>
         </div>
-        
+
+<!--
+        <div class='quiz-body row vcenter'>
+
+            <div class='quiz-question-image col-sm-6 col-sm-offset-1 '>
+                <img class='img-thumbnail center-block'>
+            </div>
+
+            <div class='quiz-panel col-sm-4'>
+                <form id='quizForm' class='panel panel-primary'>
+                    <div class='quiz-question panel-heading'></div>
+                    <div class='panel-body'>
+
+                    </div>
+                    <div class='panel-footer'>
+                        <div id='alert-submit-no-answer' class='alert alert-danger fade in' style='display: none'>
+                            <a href='#' class='close' data-hide='alert'>&times;</a>
+                            <strong>Error!</strong> Choose an answer from the above choices.
+                        </div>
+                        <button type='submit' form='quiz-panel' id='quiz-submit-button' class='btn btn-primary btn-block'>Submit</button>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+-->
+
         <ul class='list-group written-number'>
-            
+
         </ul>
-        
+
         <ul class='list-group true-false'>
-            
+            <li id='quiz-choice-1' class='list-group-item'>
+                <div class='radio'>
+                    <label>True</label>
+                </div>
+            </li>
+            <li id='quiz-choice-2' class='list-group-item'>
+                <div class='radio'>
+                    <label>False</label>
+                </div>
+            </li>
         </ul>
-        
-            <ul class='list-group multi-choice'>
-                <li id='quiz-choice-1' class='list-group-item'>
-                    <div class='radio'>
-                        <label></label>
-                    </div>
-                </li>
-                <li id='quiz-choice-2' class='list-group-item'>
-                    <div class='radio'>
-                        <label></label>
-                    </div>
-                </li>
-                <li id='quiz-choice-3' class='list-group-item'>
-                    <div class='radio'>
-                        <label></label>
-                    </div>
-                </li>
-                <li id='quiz-choice-4' class='list-group-item'>
-                    <div class='radio'>
-                        <label></label>
-                    </div>
-                </li>
-                <li id='quiz-choice-5' class='list-group-item'>
-                    <div class='radio'>
-                        <label></label>
-                    </div>
-                </li>
-            </ul>
     </div>
 
 

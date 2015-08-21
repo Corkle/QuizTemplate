@@ -91,8 +91,22 @@ function QuizCtrl() {
     this.loadQuestion = function () {
         var quizData = currentQuiz.getCurrentQuizData()
 
+        ///////////////////////////////////////////////////////////////////////////////
+        // Quiz-body should be cleared after each question. Image is optional. Code should not modify existing elements, but should clone template, update cloned object, and add element to DOM
+
+        //Remove quiz-body
+        //Copy quiz-body template
+        //If has image, add from data
+        //else remove quiz-question-image and addclass col-center to quiz-panel
+        //add question text from data
+        //determine question type by case
+        //case multi-choice: foreach quiz-choice copy list item template and set text from data
+        //prepend quiz-body.html() to quiz-content.html
+
+        // clear previous question and copy quiz-body template
+//        $('#quiz-content .quiz-body').remove();
         var quizElems = $('#quiz-body')
-        
+
         // set quiz image if available, otherwise center quiz-panel
         if (quizData.quizArray.img.length > 0) {
             quizElems.find('.quiz-question-image').show();
@@ -105,7 +119,7 @@ function QuizCtrl() {
         // Set question text
         quizElems.find('.quiz-question').text('#' + quizData.questionNum + ': ' + quizData.quizArray.question);
 
-        var quizPanel = quizElems.find('.panel-body .list-group').empty();
+        var quizPanel = quizElems.find('.panel-body .list-group');
         switch (quizData.quizArray.type) {
         case 'multi-choice':
 //            quizPanel = $('<ul class="multi-choice list-group"><ul>');
